@@ -46,9 +46,9 @@ The following automated operations can be included in playbooks and you can also
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Folder</td><td>Specifies the name of the folder where the password is stored. Default, it set as "Root".
 </td></tr><tr><td>Object</td><td>Specifies the name of the password object to retrieve.
-</td></tr><tr><td>UserName</td><td>Defines search criteria according to the UserName account property.
+</td></tr><tr><td>Username</td><td>Defines search criteria according to the Username account property.
 </td></tr><tr><td>Address</td><td>Defines search criteria according to the Address account property.
-</td></tr><tr><td>PolicyID</td><td>Defines the format that will be used in the setPolicyID method.
+</td></tr><tr><td>Policy ID</td><td>Defines the format that will be used in the Set Policy ID method.
 </td></tr><tr><td>Additional Properties</td><td>(Optional) Specify the additional properties, in the JSON format, that you want to retrieve the password from Central Credential Provider. The additional properties signify additional fields associated with the application.
 </td></tr></tbody></table>
 

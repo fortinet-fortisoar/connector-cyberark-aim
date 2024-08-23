@@ -11,7 +11,7 @@
     "vault"
   ],
   "category": "Vault",
-  "help_online": "https://github.com/fortinet-fortisoar/connector-cyberark-aim/blob/release/1.0.0/docs/CyberArkCPP.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-cyberark-aim/blob/release/1.0.0/docs/readme.md",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "ingestion_supported": false,
@@ -130,14 +130,14 @@
           "tooltip": "Specifies the name of the password object to retrieve."
         },
         {
-          "title": "UserName",
-          "description": "Defines search criteria according to the UserName account property.",
+          "title": "Username",
+          "description": "Defines search criteria according to the Username account property.",
           "name": "UserName",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tooltip": "Defines search criteria according to the UserName account property."
+          "tooltip": "Defines search criteria according to the Username account property."
         },
         {
           "title": "Address",
@@ -150,14 +150,14 @@
           "tooltip": "Defines search criteria according to the Address account property."
         },
         {
-          "title": "PolicyID",
-          "description": "Defines the format that will be used in the setPolicyID method.",
+          "title": "Policy ID",
+          "description": "Defines the format that will be used in the Set Policy ID method.",
           "name": "PolicyID",
           "type": "text",
           "visible": true,
           "editable": true,
           "required": false,
-          "tootlip": "Defines the format that will be used in the setPolicyID method."
+          "tootlip": "Defines the format that will be used in the Set Policy ID method."
         },
         {
           "title": "Additional Properties",
