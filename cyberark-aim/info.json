@@ -1,0 +1,264 @@
+{
+  "name": "cyberark-aim",
+  "version": "1.0.0",
+  "label": "CyberArk AIM",
+  "description": "CyberArk Application Identity Manager (AIM) is a key component in CyberArk's Privileged Access Security suite. It helps manage and secure credentials used by applications and services by providing secure retrieval of passwords and other sensitive data.",
+  "publisher": "Fortinet",
+  "contributor": "",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "tags": [
+    "vault"
+  ],
+  "category": "Vault",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-cyberark-aim/blob/release/1.0.0/docs/readme.md",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "ingestion_supported": false,
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "description": "URL of the CyberArk server to which you will connect and perform automated operations.",
+        "type": "text",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "tooltip": "URL of the CyberArk server to which you will connect and perform automated operations."
+      },
+      {
+        "title": "Application ID",
+        "name": "AppID",
+        "description": "Application ID that has been issued to you by CyberArk, which is used for the password retrieval process.See the \"Creating an application in CyberArk\" section for the procedure on how to create an application in CyberArk.",
+        "type": "text",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "tooltip": "Application ID that has been issued to you by CyberArk, which is used for the password retrieval process.See the \"Creating an application in CyberArk\" section for the procedure on how to create an application in CyberArk."
+      },
+      {
+        "title": "Safe Name",
+        "name": "Safe",
+        "description": "Name of the Safe that stores the credentials, including passwords.",
+        "type": "text",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "tooltip": "Name of the Safe that stores the credentials, including passwords."
+      },
+      {
+        "title": "Authentication Type",
+        "name": "auth_type",
+        "description": "Specify the type of authentication of the CyberArk server to which you will connect and perform automated operations. By default, this option is set as \"No Auth\".",
+        "type": "select",
+        "visible": true,
+        "editable": true,
+        "required": false,
+        "tooltip": "Specify the type of authentication of the CyberArk server to which you will connect and perform automated operations. By default, this option is set as \"No Auth\".",
+        "options": [
+          "No Auth",
+          "Basic Auth"
+        ],
+        "value": "No Auth",
+        "onchange": {
+          "Basic Auth": [
+            {
+              "title": "Username",
+              "tooltip": "Specify the username to access the CyberArk server to connect and perform automated operations.",
+              "required": true,
+              "editable": true,
+              "visible": true,
+              "type": "text",
+              "name": "username",
+              "description": "Specify the username to access the CyberArk server to connect and perform automated operations."
+            },
+            {
+              "title": "Password",
+              "tooltip": "Specify the password to access the CyberArk server to connect and perform automated operations.",
+              "required": true,
+              "editable": true,
+              "visible": true,
+              "type": "password",
+              "name": "password",
+              "description": "Specify the password to access the CyberArk server to connect and perform automated operations."
+            }
+          ]
+        }
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_password",
+      "visible": true,
+      "category": "investigation",
+      "annotation": "get_password",
+      "description": "Enables applications to retrieve passwords from the Central Credential Provider.",
+      "title": "Get Password",
+      "parameters": [
+        {
+          "title": "Folder",
+          "description": "Specifies the name of the folder where the password is stored. Default, it set as \"Root\".",
+          "name": "Folder",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "value": "Root",
+          "tooltip": "Specifies the name of the folder where the password is stored. Default, it set as \"Root\"."
+        },
+        {
+          "title": "Object",
+          "description": "Specifies the name of the password object to retrieve.",
+          "name": "Object",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specifies the name of the password object to retrieve."
+        },
+        {
+          "title": "Username",
+          "description": "Defines search criteria according to the Username account property.",
+          "name": "UserName",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Defines search criteria according to the Username account property."
+        },
+        {
+          "title": "Address",
+          "description": "Defines search criteria according to the Address account property.",
+          "name": "Address",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Defines search criteria according to the Address account property."
+        },
+        {
+          "title": "Policy ID",
+          "description": "Defines the format that will be used in the Set Policy ID method.",
+          "name": "PolicyID",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tootlip": "Defines the format that will be used in the Set Policy ID method."
+        },
+        {
+          "title": "Additional Properties",
+          "name": "additional_attributes",
+          "type": "json",
+          "description": "(Optional) Specify the additional properties, in the JSON format, that you want to retrieve the password from Central Credential Provider. The additional properties signify additional fields associated with the application.",
+          "tooltip": "(Optional) Specify the additional properties, in the JSON format, that you want to retrieve the password from Central Credential Provider. The additional properties signify additional fields associated with the application.",
+          "visible": true,
+          "required": false,
+          "editable": true,
+          "value": {
+            "Database": "",
+            "Reason": "",
+            "Connection Timeout": "",
+            "Query": "",
+            "Query Format": "",
+            "FailRequest OnPassword Change": ""
+          }
+        }
+      ],
+      "output_schema": {
+        "Content": "",
+        "UserName": "",
+        "Address": "",
+        "Database": "",
+        "PasswordChangeInProcess": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_credentials",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credentials",
+      "description": "Get a list of all the accounts in the Vault.",
+      "title": "Get Credentials",
+      "parameters": [],
+      "output_schema": {
+        "key": "",
+        "display_name": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_credentials_details",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credentials_details",
+      "description": "Get information about an account identified by its ID.",
+      "title": "Get Credentials Details",
+      "parameters": [
+        {
+          "title": "Secret ID",
+          "description": "ID for which you want to retrieves the details of account that you have specified from the Vault.",
+          "name": "secret_id",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "ID for which you want to retrieves the details of account that you have specified from the Vault."
+        }
+      ],
+      "output_schema": {
+        "field_name": "",
+        "value": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_credential",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credential",
+      "description": "It enables users to retrieve the password or SSH key of an existing account that is identified by its account ID.",
+      "title": "Get Credential",
+      "parameters": [
+        {
+          "title": "Secret ID",
+          "description": "ID for which you want to retrieves the password of account that you have specified from the Vault.",
+          "name": "secret_id",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "ID for which you want to retrieves the password of account that you have specified from the Vault."
+        },
+        {
+          "title": "Attribute Name",
+          "tooltip": "An attribute name among the available params from account id for whose value needs to be retrieved",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "attribute_name",
+          "description": "An attribute name among the available params from account id for whose value needs to be retrieved"
+        }
+      ],
+      "output_schema": {
+        "password": ""
+      },
+      "enabled": true
+    }
+  ]
+}

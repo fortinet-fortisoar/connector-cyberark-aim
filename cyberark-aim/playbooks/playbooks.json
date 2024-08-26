@@ -1,0 +1,100 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "3bb24010-afd1-44cf-8626-f188f404398f",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "d249acb6-6470-4440-8c4d-68df59337910",
+          "collection": "/api/3/workflow_collections/3bb24010-afd1-44cf-8626-f188f404398f",
+          "steps": [
+            {
+              "uuid": "ef8762e8-215e-4148-b664-a24682206677",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "741e9cbc-8723-4744-a0d9-a4c97bc4ab6e",
+              "@type": "WorkflowStep",
+              "name": "Get Password",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CyberArk AIM",
+                "config": "",
+                "params": {
+                  "Folder": "Root",
+                  "Object": "",
+                  "UserName": "",
+                  "Address": "",
+                  "PolicyID": "",
+                  "additional_attributes": {
+                    "Database": "",
+                    "Reason": "",
+                    "Connection Timeout": "",
+                    "Query": "",
+                    "Query Format": "",
+                    "FailRequest OnPassword Change": ""
+                  }
+                },
+                "version": "1.0.0",
+                "connector": "cyberark-aim",
+                "operation": "get_password",
+                "operationTitle": "Get Password"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Enables applications to retrieve passwords from the Central Credential Provider.",
+          "name": "Get Password",
+          "tag": "#CyberArk AIM",
+          "recordTags": [
+            "Cyberark",
+            "cyberark-aim"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ef8762e8-215e-4148-b664-a24682206677",
+          "routes": [
+            {
+              "uuid": "72bd85cc-3b2e-407c-892d-1ae3027de494",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Password",
+              "sourceStep": "/api/3/workflow_steps/ef8762e8-215e-4148-b664-a24682206677",
+              "targetStep": "/api/3/workflow_steps/741e9cbc-8723-4744-a0d9-a4c97bc4ab6e"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - CyberArk AIM - 1.0.0",
+      "description": "CyberArk Application Identity Manager (AIM) is a key component in CyberArk's Privileged Access Security suite. It helps manage and secure credentials used by applications and services by providing secure retrieval of passwords and other sensitive data.",
+      "visible": true,
+      "recordTags": [
+        "Cyberark",
+        "cyberark-aim"
+      ]
+    }
+  ]
+}
